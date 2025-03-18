@@ -6,7 +6,7 @@ import {
   Heading,
   Text,
   Stack,
-  Checkbox, VStack
+  Checkbox, VStack, HStack
 } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 import {FormControl, FormLabel} from "@chakra-ui/form-control";
@@ -25,7 +25,7 @@ export default function SimpleCard() {
         maxW={'lg'}
         py={12}
         px={6}>
-        <Stack gap={2} align={'center'}>
+        <Stack gap={6} align={'center'}>
           <Heading fontSize={'4xl'}>Sign in to your account</Heading>
           <Text fontSize={'lg'} color={'gray.600'}>
             to start your <Text as="span" color={'blue.400'}>healthy journey</Text> ✌️
@@ -36,7 +36,7 @@ export default function SimpleCard() {
           bg={useColorModeValue('white', 'gray.700')}
           boxShadow={'lg'}
           p={8}>
-          <Stack gap={4}>
+          <Stack gap={6}>
             <FormControl id="email">
               <FormLabel>Email address</FormLabel>
               <Input type="email"/>
@@ -44,19 +44,24 @@ export default function SimpleCard() {
             <FormControl id="password">
               <FormLabel>Password</FormLabel>
               <Input type="password"/>
+            </FormControl>
+            <FormControl>
               <Checkbox.Root>
               <Checkbox.HiddenInput />
               <Checkbox.Control />
               <Checkbox.Label>Remember me?</Checkbox.Label>
               </Checkbox.Root>
             </FormControl>
-            <Stack gap={4}>
-              <Stack
+            <Stack gap={6}>
+              <HStack
+                gap={6}
                 direction={{base: 'column', sm: 'row'}}
                 align={'start'}
                 justify={'space-between'}>
                 <Text color={'blue.400'}>Forgot password?</Text>
-              </Stack>
+                <Text color={'blue.100'}>Register new user</Text>
+
+              </HStack>
               <Button
                 bg={'blue.400'}
                 color={'white'}
